@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {Observable, Subject} from "rxjs";
+
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,8 @@ export class AppComponent implements OnInit{
   }
 
   // @ts-ignore
-  order(itemId):void{
-    this.httpClient.post<any>('http://localhost:8080/order', {itemId} )
-  }
+  // order(itemId):void{
+  //   console.log("this is order");
+  //   //this.httpClient.post<any>('http://localhost:8080/order', {itemId} )
+  // }
 }
