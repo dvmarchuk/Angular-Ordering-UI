@@ -6,6 +6,16 @@
           "orderingapp-22365"
         ]
       }
+    },
+    "partstech-73020": {
+      "hosting": {
+        "Ordering": [
+          "partstech-73020"
+        ]
+      }
     }
+  },
+  "projects": {
+    "default": "partstech-73020"
   }
 }

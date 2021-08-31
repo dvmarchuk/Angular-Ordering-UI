@@ -9,5 +9,30 @@
 </head>
 <body>
   <app-root></app-root>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBZXpap-hkJzm_06FdcIj4fnorzk4rKiHM",
+      authDomain: "partstech-73020.firebaseapp.com",
+      projectId: "partstech-73020",
+      storageBucket: "partstech-73020.appspot.com",
+      messagingSenderId: "629091986950",
+      appId: "1:629091986950:web:662640dfeb9330f6495d87",
+      measurementId: "G-N80VJ8E05L"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
 </body>
 </html>

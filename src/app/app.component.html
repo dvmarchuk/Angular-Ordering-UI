@@ -1,8 +1,9 @@
+
 <div class="container">
   <div class="row row-cols-2">
     <div class="col">
       <app-photo-button
-        text="drink 1"
+        text="Item 1"
         imgSource="assets/1.png"
         option1="Ice"
       ></app-photo-button>
@@ -62,4 +63,9 @@
       ></app-photo-button>
     </div>
   </div>
+</div>
+
+
+<div *ngFor="let title of title">
+{{title | json}}
 </div>
