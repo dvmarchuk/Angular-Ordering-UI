@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "orderingapp-22365": {
+      "hosting": {
+        "Ordering": [
+          "orderingapp-22365"
+        ]
+      }
+    }
+  }
+}
