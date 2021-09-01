@@ -9,10 +9,9 @@ import {Observable, Subject} from "rxjs";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  //title = 'Ordering';
-  //user: any[] = [];
-  // @ts-ignore
-  title: any[];
+  title: any[] = [];
+
+
 
   constructor(private httpClient: HttpClient) {
 
@@ -20,32 +19,34 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.httpClient.get<any[]>('http://localhost:8080/users').subscribe(value => this.title = value);
-    this.getApiAuth();
+    // this.httpClient.get<any[]>('http://localhost:8080/getPart/1').subscribe(value => this.parts = value);
+    //this.getApiAuth();
   }
 
 
-  getApiAuth() {
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
+  // getApiAuth() {
+  //   const headers = new HttpHeaders();
+  //   headers.append('Content-Type', 'application/json');
+  //
+  //   const options = {headers: {'Content-Type': 'application/json'}};
+  //
+  //   const settings = {
+  //       accessType: "user",
+  //       credentials: {
+  //         user: {
+  //           id: "demo_vaautosales",
+  //           key: "1c82778be5a549229e5189ced4cc65d0"
+  //         },
+  //         partner: {
+  //           id: "vaautosales_beta",
+  //           key: "0389ba8a09314b9d964498bfba63a016"
+  //         }
+  //       }
+  //   };
+  //
+  //   //this.httpClient.post()
+  //   this.httpClient.post('https://api.partstech.com/oauth/access', JSON.stringify(settings)).subscribe(value => console.log(value));
+  // }
 
-    const options = {headers: {'Content-Type': 'application/json'}};
-
-    const settings = {
-        accessType: "user",
-        credentials: {
-          user: {
-            id: "demo_vaautosales",
-            key: "1c82778be5a549229e5189ced4cc65d0"
-          },
-          partner: {
-            id: "vaautosales_beta",
-            key: "0389ba8a09314b9d964498bfba63a016"
-          }
-        }
-    };
-
-    //this.httpClient.post()
-    this.httpClient.post('https://api.partstech.com/oauth/access', JSON.stringify(settings)).subscribe(value => console.log(value));
-  }
 
 }
