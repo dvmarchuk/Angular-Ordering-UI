@@ -4,6 +4,9 @@ import {Observable, Subject} from "rxjs";
 import {PhotoButtonComponent} from "../button/photo-button/photo-button.component";
 import {AppComponent} from "../../app.component";
 import {HttpClient} from "@angular/common/http";
+import {UserService} from "../../services/user.service";
+import firebase from "firebase";
+import User = firebase.User;
 
 @Component({
   selector: 'app-slider',
@@ -24,8 +27,11 @@ export class SliderComponent implements OnInit {
   // @ts-ignore
   title: any[];
 
+  // @ts-ignore
+  public users: User[];
 
-  constructor(private httpClient: HttpClient) { }
+
+  constructor(private httpClient: HttpClient, private  userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -39,7 +45,11 @@ export class SliderComponent implements OnInit {
   // @ts-ignore
   order(itemId):void{
     console.log("this is order " + itemId);
-    this.httpClient.get<any[]>('http://localhost:8080/users').subscribe(value => this.title = value);
+    // @ts-ignore
+    this.userService.getUsers().subscribe((response: User[]) => {this.users = response}
+
+    )
+    // this.httpClient.get<any[]>('http://localhost:8080/users').subscribe(value => this.title = value);
     //this.httpClient.post<any>('http://localhost:8080/order', {itemId} )
   }
 }
