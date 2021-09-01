@@ -12,14 +12,12 @@ export class AppComponent implements OnInit{
   title: any[] = [];
 
 
-
   constructor(private httpClient: HttpClient) {
 
   }
 
   ngOnInit(): void {
     this.httpClient.get<any[]>('http://localhost:8080/users').subscribe(value => this.title = value);
-    // this.httpClient.get<any[]>('http://localhost:8080/getPart/1').subscribe(value => this.parts = value);
     //this.getApiAuth();
   }
 

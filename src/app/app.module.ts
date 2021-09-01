@@ -11,6 +11,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { environment } from '../environments/environment';
     // AngularFireModule.initializeApp(orderingapp-22365),
     AngularFireModule,
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    AngularFireAuthModule,
+    FormsModule,
+    // imports firebase/auth, only needed for auth features
   ],
   providers: [],
   bootstrap: [AppComponent]
