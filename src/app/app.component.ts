@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
+import {PartService} from "./services/part.service";
+import {Part} from "./part";
 
 
 @Component({
@@ -10,15 +12,26 @@ import {Observable, Subject} from "rxjs";
 })
 export class AppComponent implements OnInit{
   title: any[] = [];
+  parts: Part[] = [];
 
-
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private partService: PartService) {
 
   }
 
   ngOnInit(): void {
     this.httpClient.get<any[]>('http://localhost:8080/users').subscribe(value => this.title = value);
+    this.getParts();
     //this.getApiAuth();
+  }
+
+  public getParts(): void{
+    this.partService.getParts().subscribe(
+      (response: Part[]) =>{
+        this.parts = response;
+      },(error:HttpErrorResponse) => {
+        console.log(error.message);
+      }
+    )
   }
 
 

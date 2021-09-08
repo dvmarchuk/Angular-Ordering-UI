@@ -5,6 +5,7 @@ import {User} from "../user";
 import { environment } from 'src/environments/environment';
 
 @Injectable({providedIn: 'root'})
+
 export class UserService {
   private apiServerUrl = environment.apiBaseUrl;
 
@@ -14,5 +15,6 @@ export class UserService {
   public getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.apiServerUrl}/users`);
   }
+  //1:16
 
 }
