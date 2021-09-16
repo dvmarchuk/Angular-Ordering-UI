@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
+import {BehaviorSubject} from "rxjs";
 import {PartService} from "./services/part.service";
 import {Part} from "./part";
 
@@ -13,6 +14,8 @@ import {Part} from "./part";
 export class AppComponent implements OnInit{
   title: any[] = [];
   parts: Part[] = [];
+  vinNum: String = '';
+
 
   constructor(private httpClient: HttpClient, private partService: PartService) {
 
@@ -21,6 +24,7 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.httpClient.get<any[]>('http://localhost:8080/users').subscribe(value => this.title = value);
     this.getParts();
+    this.partService.currentMessage.subscribe(vin => this.vinNum = vin);
     //this.getApiAuth();
   }
 
@@ -32,6 +36,17 @@ export class AppComponent implements OnInit{
         console.log(error.message);
       }
     )
+  }
+
+  callVin() {
+    //this.partService.currentMessage.subscribe(vin => this.vinNum = vin)
+    this.partService.callVin(this.vinNum);
+   // this.partService.currentMessage.subscribe();
+    console.log(this.vinNum)
+    if(this.vinNum.length == 17){
+      //allow api call to happen
+    }
+    this.vinNum = "";
   }
 
 
@@ -58,6 +73,7 @@ export class AppComponent implements OnInit{
   //   //this.httpClient.post()
   //   this.httpClient.post('https://api.partstech.com/oauth/access', JSON.stringify(settings)).subscribe(value => console.log(value));
   // }
+
 
 
 }

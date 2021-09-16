@@ -1,7 +1,20 @@
 <section>
   <div>
     <nav class="navbar navbar-expand-md bg-dark text-white navbar-dark p-2">
-      <h1>Order Parts</h1>
+
+      <div>
+        <h1>Order Parts</h1>
+      </div>
+
+      <div class="input-group float-right">
+        <div class="form-outline">
+          <input type="search" id="form1" class="form-control" [(ngModel)]="vinNum" placeholder="Enter VIN" />
+        </div>
+        <button type="button" class="btn btn-primary" (click)="callVin()">
+          <i class="bi bi-search">Search</i>
+        </button>
+      </div>
+
     </nav>
   </div>
 </section>

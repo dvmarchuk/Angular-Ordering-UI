@@ -5,7 +5,6 @@ import {User} from "../user";
 import { environment } from 'src/environments/environment';
 
 @Injectable({providedIn: 'root'})
-
 export class UserService {
   private apiServerUrl = environment.apiBaseUrl;
 
@@ -15,6 +14,16 @@ export class UserService {
   public getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.apiServerUrl}/users`);
   }
-  //1:16
-
+  //
+  // public addEmployee(employee: Employee): Observable<Employee> {
+  //   return this.http.post<Employee>(`${this.apiServerUrl}/employee/add`, employee);
+  // }
+  //
+  // public updateEmployee(employee: Employee): Observable<Employee> {
+  //   return this.http.put<Employee>(`${this.apiServerUrl}/employee/update`, employee);
+  // }
+  //
+  // public deleteEmployee(employeeId: number): Observable<void> {
+  //   return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employeeId}`);
+  // }
 }
